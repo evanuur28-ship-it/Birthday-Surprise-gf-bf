@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For You ♡</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;color:#604454;background:#fff5fa;overflow-x:hidden}
+.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px 15px}
+.card{width:min(690px,100%);padding:30px 20px;text-align:center;background:#ffffffeb;border:1px solid #f3c7db;border-radius:30px;box-shadow:0 20px 70px #b85c8224;backdrop-filter:blur(8px)}
+.hidden{display:none}.tiny{text-transform:uppercase;letter-spacing:3px;font-size:12px;color:#bd7395}
+h1{font-size:clamp(42px,11vw,75px);line-height:.98;color:#d95791;margin:16px 0}
+h2{font-size:clamp(28px,7vw,44px);color:#bb638b;margin:12px 0 20px}
+p{font-size:17px;line-height:1.7}.subtitle{font-size:19px}
+.btn{border:0;border-radius:999px;padding:14px 22px;margin:8px 4px;background:linear-gradient(135deg,#ed72a8,#ad76dc);color:#fff;font-weight:bold;font-size:16px;cursor:pointer;box-shadow:0 9px 22px #bd5e972b}
+.gift{font-size:92px;cursor:pointer;animation:bounce 1.5s infinite;margin:5px}
+@keyframes bounce{50%{transform:translateY(-12px) rotate(3deg)}}
+.letter{padding:22px;text-align:left;background:#fff7fb;border:1px dashed #eaa9c8;border-radius:22px;margin:18px 0}
+.reasons{display:grid;gap:11px}.reason{padding:15px;text-align:left;background:#fff;border-radius:17px;box-shadow:0 5px 18px #6e496b12}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+.photo{aspect-ratio:1;border-radius:20px;background:linear-gradient(135deg,#ffd8e9,#e8dcff);display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:18px}
+.cake{font-size:82px}.small{font-size:13px;color:#9d8290}.footer{font-size:12px;color:#a98e9b;margin-top:22px}
+#musicBtn{position:fixed;right:16px;top:16px;z-index:10;width:48px;height:48px;border:0;border-radius:50%;background:#fff;color:#c65c91;box-shadow:0 8px 25px #7b50651c;font-size:20px}
+.heart{position:fixed;z-index:0;pointer-events:none;animation:float 7s linear infinite;opacity:.6}
+@keyframes float{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
+.card>*{position:relative;z-index:1}
+.fade{animation:fade .7s ease}@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<button id="musicBtn" onclick="toggleMusic()">♫</button>
+<audio id="music" loop preload="auto"><source src="romantic-melody.wav" type="audio/wav"></audio>
+
+<section class="page" id="home"><div class="card fade" style="background:linear-gradient(145deg,#fff9fcf5,#fff0f7e8);position:relative">
+<div style="font-size:28px;letter-spacing:8px">♡ ✦ ♡</div>
+<div class="tiny">a little love letter for you</div>
+<h1 style="font-family:Georgia,serif;font-weight:600;letter-spacing:-1px">Happy Birthday,<br><span id="name">Sayang</span> ♡</h1>
+<div style="width:90px;height:2px;background:#e9a7c4;margin:18px auto"></div>
+<p class="subtitle" style="font-family:Georgia,serif;font-style:italic">“For the person who makes my world a little sweeter.”</p>
+<div style="margin:24px auto 14px;width:190px;height:190px;border-radius:50%;background:linear-gradient(135deg,#ffe0ec,#efdfff);display:flex;align-items:center;justify-content:center;box-shadow:0 15px 35px #bd6f9325">
+  <div class="gift" onclick="openGift()" style="font-size:82px;margin:0">🎁</div>
+</div>
+<button class="btn" onclick="openGift()">Open Your Surprise ✨</button>
+<p class="small">turn on the sound ♫ • tap the gift to begin</p>
+</div></section>
+
+<section class="page hidden" id="gift"><div class="card fade">
+<div class="tiny">you unlocked a little surprise</div>
+<h2>Surat Untuk Kamu 💌</h2>
+<div class="letter">
+<p><b>Dear kamu,</b></p>
+<p>Selamat ulang tahun, sayang. 🤍</p>
+<p>Hari ini aku cuma mau bilang: terima kasih karena sudah hadir dan menjadi bagian dari cerita hidupku. Semoga di umur yang baru ini, kamu semakin bahagia, semakin kuat, dan semua hal yang kamu impikan perlahan jadi nyata.</p>
+<p>Kalau suatu hari kamu lagi capek, ingat ya... ada seseorang yang selalu bangga sama kamu. 🫶</p>
+<p>With all my love,<br><b>Someone who loves you ♡</b></p>
+</div>
+<button class="btn" onclick="show('reasons')">Kenapa Aku Sayang Kamu? 🥺</button>
+</div></section>
+
+<section class="page hidden" id="reasons"><div class="card fade">
+<div class="tiny">5 little things</div><h2>Alasan Aku Sayang Kamu 💗</h2>
+<div class="reasons">
+<div class="reason">🌷 <b>01.</b> Senyum kamu selalu berhasil bikin mood aku membaik.</div>
+<div class="reason">✨ <b>02.</b> Kamu punya cara sendiri yang bikin kamu berbeda.</div>
+<div class="reason">🫶 <b>03.</b> Aku nyaman jadi diri sendiri kalau sama kamu.</div>
+<div class="reason">🌙 <b>04.</b> Hal sederhana bareng kamu bisa jadi kenangan yang indah.</div>
+<div class="reason">💞 <b>05.</b> Karena sesederhana itu: aku sayang kamu.</div>
+</div>
+<button class="btn" onclick="show('photos')">Lihat Kenangan Kita 📸</button>
+</div></section>
+
+<section class="page hidden" id="photos"><div class="card fade">
+<div class="tiny">our memories</div><h2>Little Pieces of Us 📸</h2>
+<p>Bagian ini bisa diisi foto-foto kalian. Tinggal ganti kotak di bawah dengan foto asli.</p>
+<div class="photos">
+<div class="photo">📷<br>Foto Kita #1</div>
+<div class="photo">📷<br>Foto Kita #2</div>
+<div class="photo">📷<br>Foto Kita #3</div>
+<div class="photo">📷<br>Foto Kita #4</div>
+</div>
+<button class="btn" onclick="show('wish')">Ada Satu Hal Lagi... 💌</button>
+</div></section>
+
+<section class="page hidden" id="wish"><div class="card fade">
+<div class="tiny">make a wish</div><div class="cake">🎂</div>
+<h2>Pejamkan Mata & Buat Permintaan ✨</h2>
+<p>Semoga semua doa yang belum sempat kamu ceritakan menemukan jalannya.</p>
+<p>Semoga tahun ini membawa lebih banyak tawa, kesempatan, rezeki, kesehatan, dan orang-orang yang tulus menyayangimu.</p>
+<button class="btn" onclick="show('final');confetti()">Aku Sudah Make a Wish 🥹</button>
+</div></section>
+
+<section class="page hidden" id="final"><div class="card fade">
+<div class="tiny">one last message</div>
+<h1>Happy Birthday! 🥳</h1>
+<p style="font-size:21px">I hope you know how loved you are. ♡</p>
+<p>Terima kasih sudah menjadi kamu. Jangan pernah lupa kalau kamu berharga, kamu pantas dicintai, dan kamu pantas mendapatkan hal-hal baik.</p>
+<h2>Love you always 💗</h2>
+<p class="small">— dari seseorang yang sayang banget sama kamu</p>
+<button class="btn" onclick="show('home')">Putar Lagi ↻</button>
+<p class="footer">Birthday Surprise • custom nama, foto, ucapan & musik</p>
+</div></section>
+
+<script>
+const q=new URLSearchParams(location.search);
+const n=q.get("name"); if(n)document.getElementById("name").textContent=n;
+
+function show(id){
+ document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"));
+ const el=document.getElementById(id);el.classList.remove("hidden");el.classList.add("fade");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function openGift(){show("gift");try{document.getElementById("music").play()}catch(e){}}
+function toggleMusic(){
+ const m=document.getElementById("music"),b=document.getElementById("musicBtn");
+ if(m.paused){m.play().catch(()=>{});b.textContent="🔊"}else{m.pause();b.textContent="♫"}
+}
+function confetti(){
+ for(let i=0;i<55;i++){
+  const x=document.createElement("div");x.textContent=["💗","✨","🎉","💕","🌸"][Math.floor(Math.random()*5)];
+  x.style.position="fixed";x.style.left=Math.random()*100+"vw";x.style.top="-30px";x.style.fontSize=12+Math.random()*18+"px";x.style.zIndex=99;
+  document.body.appendChild(x);
+  const a=x.animate([{transform:"translateY(0) rotate(0)",opacity:1},{transform:`translateY(${105+Math.random()*40}vh) rotate(${Math.random()*720}deg)`,opacity:0}],{duration:1800+Math.random()*1200});
+  a.onfinish=()=>x.remove();
+ }
+}
+for(let i=0;i<20;i++){
+ let h=document.createElement("div");h.className="heart";h.textContent=["💗","💖","✨","🌸","💕"][Math.floor(Math.random()*5)];
+ h.style.left=Math.random()*100+"%";h.style.animationDelay=Math.random()*7+"s";h.style.fontSize=14+Math.random()*18+"px";document.body.appendChild(h);
+}
+</script>
+</body>
+</html>
